@@ -1,0 +1,10 @@
+services:
+  agent:
+    build: .
+    container_name: content-agent
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data      # DB + inbox + outputs survive container restarts
+    restart: unless-stopped
